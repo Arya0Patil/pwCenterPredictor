@@ -3,8 +3,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f4f4f9;
+   
+    background-color: #f4f4f9;  
+    overflow-y: auto;
     margin: 0;
   }
   
@@ -50,8 +51,17 @@ body {
   }
   
   .result {
-    padding: auto;
+    padding: 5px;
     background-color: #caf9cd;
+    margin-top: 20px;
+    border-radius: 4px;
+    text-align: start;
+    font-weight: bold;
+  }
+
+  .noteligible {
+    padding: 5px;
+    background-color: #f9caca;
     margin-top: 20px;
     border-radius: 4px;
     text-align: start;
