@@ -10,9 +10,8 @@ document.getElementById('predictorForm').addEventListener('submit', function (ev
     submitButton.innerText = "Processing...";
 
     // Call the predictColleges function with the inputs
-    setTimeout(() => {
+    
         let { eligibleColleges, notEligibleColleges } = predictColleges(rank, location, colleges);
-    }, 5000);
     
 
     // Display the predicted colleges in the result div
