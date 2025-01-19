@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+ 
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+
+
 </head>
 <body>
     <div class="container">
-        <h1>PrepWizard</h1>
+      <div class="center">
+        <a href="https://www.prepwizard.in">
+            <img src="prepwizardlogo.png" alt="prepwizard logo">
+        </a>
+    </div>
+    <a href="www.prepwizard.in" style="text-decoration: none;"> <h1 style="color: black; ">PrepWizard </h1></a>
+       
       <h1>CDAC Center Predictor</h1>
       <form id="predictorForm">
         <label for="username">Name:</label>
@@ -18,13 +28,13 @@
         <input type="email" id="email" name="email" required>
   
         <label for="mobile">Mobile:</label>
-        <input type="text" id="mobile" name="mobile" required pattern="^\d{10}$" title="Please enter a valid 10-digit mobile number">
+        <input type="text" id="mobile" name="mobile" placeholder="10 digit mobile number" required pattern="^\d{10}$" title="Please enter a valid 10-digit mobile number">
   
         <label for="rank">Rank:</label>
-        <input type="number" id="rank" name="rank" required>
+        <input type="number" id="rank" name="rank"  required>
 
         <label for="location">Preferred Location:</label>
-        <input type="text" id="location" name="location" required>
+        <input type="text" id="location" name="location" placeholder="Eg. Pune" required>
   
         <button id="submit" type="submit">Predict College</button>
       </form>
