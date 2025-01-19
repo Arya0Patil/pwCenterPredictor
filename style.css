@@ -15,7 +15,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px; /* Maximum width for larger screens */
+    max-width: 450px; /* Maximum width for larger screens */
     margin: 10px; /* Margin for small screens */
     }
   
@@ -28,7 +28,7 @@ body {
     align-items: center;
 }
 .center img {
-    height: 100px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
 }
   
   label {
