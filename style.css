@@ -3,13 +3,24 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-   
+    background-image: url('background1.jpg');
     background-color: #f4f4f9;  
     overflow-y: auto;
     margin: 0;
   }
+
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+  }
   
   .container {
+    flex: 1 1 400px;
+    box-sizing: border-box;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -20,6 +31,9 @@ body {
     }
   
   h1 {
+    text-align: center;
+  }
+  h2 {
     text-align: center;
   }
   .center {
@@ -75,6 +89,88 @@ body {
     text-align: start;
     font-weight: bold;
   }
+
+  .course-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .course-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s ease;
+  }
+  
+  .course-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .course-card img {
+    width: 100%;
+    
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  
+  .course-card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+  }
+  
+  .course-card p {
+    margin: 0;
+  }
+  
+  .old-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 5px;
+  }
+  
+  .new-price {
+    color: #4CAF50;
+    font-weight: bold;
+  }
+
+  .moving-strip {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  .moving-strip span {
+    display: inline-block;
+    padding-left: 100%; /* Start off-screen */
+    animation: scroll-left 10s linear infinite;
+  }
+  
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .moving-strip:hover span {
+    animation-play-state: paused;
+  }
+  
 
 
   @media (max-width: 400px) {
