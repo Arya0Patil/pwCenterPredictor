@@ -8,80 +8,126 @@
     <meta name="author" content="PrepWizard">
     <title>CDAC Center Predictor | PrepWizard</title>
     <link rel="stylesheet" href="style.css">
- 
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-
-
 </head>
 <body>
-  <div class="form-row">
-    <div class="container">
-      <div class="center">
-        <a href="https://www.prepwizard.in">
-            <img src="prepwizardlogo.png" alt="prepwizard logo">
-        </a>
-    </div>
-    <a href="https://www.prepwizard.in" style="text-decoration: none;"> <h1 style="color: black; ">PrepWizard </h1></a>
-       
-      <h1>CDAC Center Predictor</h1>
-      <form id="predictorForm">
-        <label for="username">Name:</label>
-        <input type="text" id="username" name="username" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-  
-        <label for="mobile">Mobile:</label>
-        <input type="text" id="mobile" name="mobile" placeholder="10 digit mobile number" required pattern="^\d{10}$" title="Please enter a valid 10-digit mobile number">
-  
-        <label for="rank">Rank(A+B / A+B+C ):</label>
-        <input type="number" id="rank" name="rank"  required>
-
-        <label for="location">Preferred Location:</label>
-        <input type="text" id="location" name="location" placeholder="Eg. Pune" >
-  
-        <button id="submit" type="submit">Predict College</button>
-      </form>
-  
-      <div id="result" class="result"></div>
-      
-      <div id="noteligible" class="noteligible"></div>
-      <!-- <div><progress></progress></div> -->
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="https://www.prepwizard.in" class="header-brand">
+        <img src="prepwizardlogo.png" alt="PrepWizard Logo">
+        <span>PrepWizard</span>
+      </a>
+      <nav class="header-nav">
+        <a href="https://www.prepwizard.in" target="_blank">Courses</a>
+        <a href="http://campusx.prepwizard.in/" target="_blank" class="nav-ca-btn">Campus Ambassador</a>
+      </nav>
     </div>
-    <!-- Course Cards on the Right -->
-<div class="container">
-  <h2>Prepare Smarter: Recommended Courses for You</h2>
-  <div class="moving-strip">
-        <span>🚀 Use code PREP15 and get flat 15% off ! </span>
-  </div>
-  <div class="course-grid">
-    <!-- Example Course Card -->
-    <div class="course-card" onclick="window.location.href='https://www.prepwizard.in/courses/Diploma-in-Advanced-Computing-CCEE-Preparation-test-series'">
-      <img src="https://d502jbuhuh9wk.cloudfront.net/courses/674c118b531c4c3852c3e72a/674c118b531c4c3852c3e72a_scaled_cover.jpg?v=1" alt="Course 1">
-      <h3>DAC CCEE Test Series</h3>
-      <p><span class="old-price">₹699</span> <span class="new-price">₹349</span></p>
-    </div>
+  </header>
 
-    <div class="course-card" onclick="window.location.href='https://www.prepwizard.in/courses/CDAC-CCEE-Section-A--B'">
-      <img src="https://d502jbuhuh9wk.cloudfront.net/courses/6767e647b3c0466ef2cc1511/6767e647b3c0466ef2cc1511_scaled_cover.jpg?v=2" alt="Course 2">
-      <h3>CCAT Section A+B</h3>
-      <p><span class="old-price">₹1,400</span> <span class="new-price">₹359</span></p>
-    </div>
-    <div class="course-card" onclick="window.location.href='https://www.prepwizard.in/courses/CDAC-CCAT-Section-B-Test-Series'">
-      <img src="https://d502jbuhuh9wk.cloudfront.net/courses/675ef7321d6eb21a4488460b/675ef7321d6eb21a4488460b_scaled_cover.jpg?v=1" alt="Course 2">
-      <h3>CCAT Section B</h3>
-      <p><span class="old-price">₹659</span> <span class="new-price">₹259</span></p>
-    </div>
+  <main>
 
-    <!-- Add more cards as needed -->
-  </div>
-</div>
+    <!-- ── Hero: Split layout (CA left | Predictor right) ── -->
+    <section class="hero-split">
 
-  </div>
-  
-    <script src="script.js"></script>
-  </body>
+      <!-- Left: Campus Ambassador -->
+      <div class="hero-ca">
+        <span class="ca-badge">Now Open</span>
+        <h2>Become a Campus Ambassador</h2>
+        <p>Represent PrepWizard at your campus — India's fastest-growing CDAC prep platform. Earn rewards, unlock free courses, and add real leadership experience to your resume.</p>
+
+        <div class="ca-perks">
+          <div class="perk-item">
+            <span class="perk-icon">🎓</span>
+            <span>Free Courses</span>
+          </div>
+          <div class="perk-item">
+            <span class="perk-icon">💰</span>
+            <span>Earn Commission</span>
+          </div>
+          <div class="perk-item">
+            <span class="perk-icon">📜</span>
+            <span>Certificate</span>
+          </div>
+          <div class="perk-item">
+            <span class="perk-icon">🚀</span>
+            <span>Resume Boost</span>
+          </div>
+        </div>
+
+        <a href="http://campusx.prepwizard.in/" target="_blank" class="ca-apply-btn">Apply Now &rarr;</a>
+
+        <div class="ca-divider"></div>
+        <p class="ca-tagline">Join 500+ ambassadors across India</p>
+      </div>
+
+      <!-- Right: Predictor Form -->
+      <div class="hero-predictor">
+        <div class="predictor-header">
+          <h1>CDAC Center Predictor</h1>
+          <p class="predictor-sub">Enter your rank to find eligible CDAC centers instantly</p>
+        </div>
+
+        <form id="predictorForm">
+          <label for="username">Name</label>
+          <input type="text" id="username" name="username" placeholder="Your full name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+          <label for="mobile">Mobile</label>
+          <input type="text" id="mobile" name="mobile" placeholder="10-digit mobile number" required pattern="^\d{10}$" title="Please enter a valid 10-digit mobile number">
+
+          <label for="rank">Rank (A+B / A+B+C)</label>
+          <input type="number" id="rank" name="rank" placeholder="Enter your CDAC rank" required>
+
+          <label for="location">Preferred Location</label>
+          <input type="text" id="location" name="location" placeholder="Eg. Pune">
+
+          <button id="submit" type="submit">Predict My College &rarr;</button>
+        </form>
+
+        <div id="result" class="result"></div>
+        <div id="noteligible" class="noteligible"></div>
+      </div>
+
+    </section>
+
+    <!-- ── Courses Section ── -->
+    <section class="courses-section">
+      <div class="courses-inner">
+        <h2>Prepare Smarter: Recommended Courses</h2>
+        <div class="moving-strip">
+          <span>🚀 Use code PREP15 and get flat 15% off!</span>
+        </div>
+        <div class="course-grid">
+          <div class="course-card" onclick="window.location.href='https://www.prepwizard.in/courses/Diploma-in-Advanced-Computing-CCEE-Preparation-test-series'">
+            <img src="https://d502jbuhuh9wk.cloudfront.net/courses/674c118b531c4c3852c3e72a/674c118b531c4c3852c3e72a_scaled_cover.jpg?v=1" alt="DAC CCEE Test Series">
+            <h3>DAC CCEE Test Series</h3>
+            <p><span class="old-price">₹699</span> <span class="new-price">₹349</span></p>
+          </div>
+          <div class="course-card" onclick="window.location.href='https://www.prepwizard.in/courses/CDAC-CCEE-Section-A--B'">
+            <img src="https://d502jbuhuh9wk.cloudfront.net/courses/6767e647b3c0466ef2cc1511/6767e647b3c0466ef2cc1511_scaled_cover.jpg?v=2" alt="CCAT Section A+B">
+            <h3>CCAT Section A+B</h3>
+            <p><span class="old-price">₹1,400</span> <span class="new-price">₹359</span></p>
+          </div>
+          <div class="course-card" onclick="window.location.href='https://www.prepwizard.in/courses/CDAC-CCAT-Section-B-Test-Series'">
+            <img src="https://d502jbuhuh9wk.cloudfront.net/courses/675ef7321d6eb21a4488460b/675ef7321d6eb21a4488460b_scaled_cover.jpg?v=1" alt="CCAT Section B">
+            <h3>CCAT Section B</h3>
+            <p><span class="old-price">₹659</span> <span class="new-price">₹259</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <p>&copy; 2025 PrepWizard. All rights reserved. &nbsp;|&nbsp; <a href="https://www.prepwizard.in" target="_blank">prepwizard.in</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
-
-
-
