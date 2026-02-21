@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   background-image: url('background1.jpg');
@@ -17,6 +21,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* ── Header ──────────────────────────────────────── */
@@ -96,6 +102,8 @@ main { flex: 1; }
 .hero-split {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  overflow: hidden;
 }
 
 /* Mobile: predictor first, CA second */
@@ -106,6 +114,8 @@ main { flex: 1; }
 .hero-predictor {
   background: rgba(255, 255, 255, 0.97);
   padding: 28px 20px 32px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .predictor-header {
@@ -204,6 +214,8 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
 }
 
 .ca-badge {
