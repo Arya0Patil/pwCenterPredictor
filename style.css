@@ -1,3 +1,6 @@
+/* ══════════════════════════════════════════
+   BASE — Mobile First
+══════════════════════════════════════════ */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,7 +12,8 @@ body {
   background-image: url('background1.jpg');
   background-color: #f4f4f9;
   background-size: cover;
-  background-attachment: fixed;
+  background-position: center;
+  background-attachment: scroll; /* fixed causes lag on iOS */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -19,7 +23,7 @@ body {
 .site-header {
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(8px);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -28,7 +32,7 @@ body {
 .header-inner {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 13px 28px;
+  padding: 11px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,28 +41,30 @@ body {
 .header-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-decoration: none;
   color: #1a1a1a;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
 .header-brand img {
-  height: 38px;
+  height: 32px;
 }
 
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
 }
 
+/* hide plain nav links on mobile, show only CA button */
 .header-nav a {
+  display: none;
   text-decoration: none;
   color: #555;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   transition: color 0.2s;
 }
 
@@ -67,11 +73,14 @@ body {
 }
 
 .nav-ca-btn {
+  display: inline-block !important;
   background: linear-gradient(135deg, #4CAF50, #2e7d32);
   color: white !important;
-  padding: 8px 20px;
+  padding: 7px 14px;
   border-radius: 25px;
+  font-size: 0.78rem;
   font-weight: 600 !important;
+  white-space: nowrap;
   transition: transform 0.2s, box-shadow 0.2s !important;
 }
 
@@ -81,167 +90,55 @@ body {
 }
 
 /* ── Main ──────────────────────────────────────── */
-main {
-  flex: 1;
-}
+main { flex: 1; }
 
 /* ── Hero Split ──────────────────────────────────────── */
 .hero-split {
   display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  min-height: calc(100vh - 65px);
-}
-
-/* ── Left: Campus Ambassador ──────────────────────────────────────── */
-.hero-ca {
-  flex: 1 1 420px;
-  background: linear-gradient(145deg, #1b5e20 0%, #2d7a30 40%, #388e3c 70%, #1b5e20 100%);
-  color: white;
-  padding: 56px 52px;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
-.ca-badge {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.18);
-  border: 1.5px solid rgba(255, 255, 255, 0.45);
-  color: #fff;
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 4px 14px;
-  border-radius: 20px;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-  width: fit-content;
-}
+/* Mobile: predictor first, CA second */
+.hero-predictor { order: 1; }
+.hero-ca        { order: 2; }
 
-.hero-ca h2 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 16px;
-  color: white;
-}
-
-.hero-ca > p {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 32px;
-  max-width: 460px;
-}
-
-.ca-perks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 36px;
-}
-
-.perk-item {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  padding: 9px 16px;
-  border-radius: 30px;
-  font-size: 0.88rem;
-  font-weight: 600;
-  transition: background 0.2s;
-}
-
-.perk-item:hover {
-  background: rgba(255, 255, 255, 0.22);
-}
-
-.perk-icon {
-  font-size: 1.1rem;
-}
-
-.ca-apply-btn {
-  display: inline-block;
-  background: #ffffff;
-  color: #2e7d32;
-  padding: 14px 42px;
-  border-radius: 30px;
-  font-size: 1.05rem;
-  font-weight: 700;
-  text-decoration: none;
-  width: fit-content;
-  transition: transform 0.2s, box-shadow 0.2s, color 0.2s;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  letter-spacing: 0.2px;
-  margin-bottom: 28px;
-}
-
-.ca-apply-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
-  color: #1b5e20;
-}
-
-.ca-divider {
-  width: 48px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 2px;
-  margin-bottom: 14px;
-}
-
-.ca-tagline {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
-  font-style: italic;
-  margin: 0;
-}
-
-/* ── Right: Predictor ──────────────────────────────────────── */
+/* ── Predictor Panel ──────────────────────────────────────── */
 .hero-predictor {
-  flex: 1 1 420px;
-  background: rgba(255, 255, 255, 0.96);
-  padding: 52px 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.97);
+  padding: 28px 20px 32px;
 }
 
 .predictor-header {
-  margin-bottom: 28px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .predictor-header h1 {
-  font-size: 1.75rem;
+  font-size: 1.4rem;
   font-weight: 800;
   color: #1a1a1a;
-  text-align: left;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .predictor-sub {
-  font-size: 0.9rem;
-  color: #777;
+  font-size: 0.83rem;
+  color: #888;
 }
 
 label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
   color: #444;
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.5px;
 }
 
 input {
   width: 100%;
-  padding: 11px 14px;
-  margin-bottom: 14px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
   border: 1.5px solid #e0e0e0;
   border-radius: 8px;
   font-size: 0.95rem;
@@ -265,11 +162,11 @@ button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.97rem;
   font-weight: 700;
   letter-spacing: 0.3px;
   transition: transform 0.2s, box-shadow 0.2s;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 button:hover {
@@ -278,32 +175,127 @@ button:hover {
 }
 
 .result {
-  padding: 14px;
+  padding: 12px;
   background-color: #e8f5e9;
   border-left: 4px solid #4CAF50;
-  margin-top: 20px;
+  margin-top: 16px;
   border-radius: 8px;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   line-height: 1.6;
 }
 
 .noteligible {
-  padding: 14px;
+  padding: 12px;
   background-color: #ffebee;
   border-left: 4px solid #e53935;
   margin-top: 10px;
   border-radius: 8px;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   line-height: 1.6;
+}
+
+/* ── Campus Ambassador Panel ──────────────────────────────────────── */
+.hero-ca {
+  background: linear-gradient(145deg, #1b5e20 0%, #2d7a30 40%, #388e3c 70%, #1b5e20 100%);
+  color: white;
+  padding: 32px 20px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ca-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 20px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.hero-ca h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.hero-ca > p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 20px;
+}
+
+/* 2×2 grid on mobile */
+.ca-perks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.perk-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.perk-item:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.perk-icon { font-size: 1rem; }
+
+/* Full-width pill on mobile */
+.ca-apply-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #ffffff;
+  color: #2e7d32;
+  padding: 13px 24px;
+  border-radius: 10px;
+  font-size: 0.97rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, color 0.2s;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.ca-apply-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  color: #1b5e20;
+}
+
+/* hide decorative elements on small screens */
+.ca-divider,
+.ca-tagline {
+  display: none;
 }
 
 /* ── Courses Section ──────────────────────────────────────── */
 .courses-section {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(6px);
-  padding: 48px 24px;
+  padding: 32px 16px;
 }
 
 .courses-inner {
@@ -313,10 +305,10 @@ button:hover {
 
 .courses-inner h2 {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #1a1a1a;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .moving-strip {
@@ -326,9 +318,10 @@ button:hover {
   background: linear-gradient(135deg, #1a1a1a, #333);
   color: #fff;
   font-weight: bold;
-  padding: 10px 0;
+  font-size: 0.85rem;
+  padding: 9px 0;
   border-radius: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .moving-strip span {
@@ -346,20 +339,18 @@ button:hover {
   animation-play-state: paused;
 }
 
+/* single column on mobile */
 .course-grid {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .course-card {
   background-color: #fff;
-  border-radius: 14px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.09);
-  flex: 1 1 240px;
-  max-width: 280px;
-  padding: 14px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.09);
+  padding: 12px;
   cursor: pointer;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -367,8 +358,8 @@ button:hover {
 }
 
 .course-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
 }
 
 .course-card img {
@@ -378,26 +369,24 @@ button:hover {
 }
 
 .course-card h3 {
-  margin: 12px 0 6px;
-  font-size: 1rem;
+  margin: 10px 0 5px;
+  font-size: 0.95rem;
   color: #222;
 }
 
-.course-card p {
-  margin: 0;
-}
+.course-card p { margin: 0; }
 
 .old-price {
   text-decoration: line-through;
   color: #aaa;
-  margin-right: 5px;
-  font-size: 0.9rem;
+  margin-right: 4px;
+  font-size: 0.85rem;
 }
 
 .new-price {
   color: #2e7d32;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 /* ── Footer ──────────────────────────────────────── */
@@ -405,59 +394,126 @@ button:hover {
   background: #1a1a1a;
   color: #888;
   text-align: center;
-  padding: 20px 24px;
-  font-size: 0.88rem;
+  padding: 16px;
+  font-size: 0.82rem;
 }
 
-.site-footer a {
-  color: #4CAF50;
-  text-decoration: none;
+.site-footer a { color: #4CAF50; text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+
+
+/* ══════════════════════════════════════════
+   TABLET  ≥ 540px
+══════════════════════════════════════════ */
+@media (min-width: 540px) {
+  .header-inner    { padding: 12px 24px; }
+  .header-brand    { font-size: 1.2rem; }
+  .header-brand img { height: 36px; }
+  .nav-ca-btn      { padding: 8px 18px; font-size: 0.85rem; }
+
+  .hero-predictor  { padding: 36px 32px 40px; }
+  .predictor-header h1 { font-size: 1.55rem; }
+
+  .hero-ca         { padding: 36px 32px 40px; }
+  .hero-ca h2      { font-size: 1.7rem; }
+  .hero-ca > p     { font-size: 0.95rem; }
+
+  /* perks back to flex row */
+  .ca-perks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: auto;
+    margin-bottom: 24px;
+  }
+
+  .perk-item       { border-radius: 30px; padding: 8px 14px; font-size: 0.84rem; }
+
+  /* button back to inline pill */
+  .ca-apply-btn {
+    display: inline-block;
+    width: auto;
+    border-radius: 30px;
+    padding: 12px 36px;
+    margin-bottom: 20px;
+  }
+
+  /* show tagline */
+  .ca-divider {
+    display: block;
+    width: 48px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    margin: 0 0 12px;
+  }
+
+  .ca-tagline {
+    display: block;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+  }
+
+  /* 2-column course grid */
+  .course-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .course-card {
+    flex: 1 1 200px;
+    max-width: 260px;
+  }
+
+  .courses-inner h2 { font-size: 1.35rem; }
 }
 
-.site-footer a:hover {
-  text-decoration: underline;
-}
 
-/* ── Responsive ──────────────────────────────────────── */
-@media (max-width: 860px) {
+/* ══════════════════════════════════════════
+   DESKTOP  ≥ 860px
+══════════════════════════════════════════ */
+@media (min-width: 860px) {
+  body { background-attachment: fixed; }
+
+  .header-inner    { padding: 13px 28px; }
+  .header-brand    { font-size: 1.25rem; }
+  .header-brand img { height: 38px; }
+
+  /* show all nav links */
+  .header-nav a    { display: inline-block; }
+  .nav-ca-btn      { padding: 8px 20px; font-size: 0.95rem; }
+
+  /* side-by-side hero */
   .hero-split {
-    flex-direction: column;
-    min-height: unset;
+    flex-direction: row;
+    align-items: stretch;
+    min-height: calc(100vh - 65px);
   }
 
-  .hero-ca,
-  .hero-predictor {
-    padding: 44px 32px;
-  }
+  /* restore HTML order: CA left, predictor right */
+  .hero-ca        { order: 1; flex: 1 1 420px; padding: 56px 52px; justify-content: center; }
+  .hero-predictor { order: 2; flex: 1 1 420px; padding: 52px 48px; justify-content: center; overflow-y: auto; }
 
-  .hero-ca h2 {
-    font-size: 1.8rem;
-  }
+  .predictor-header { text-align: left; margin-bottom: 28px; }
+  .predictor-header h1 { font-size: 1.75rem; text-align: left; }
+  .predictor-sub  { font-size: 0.9rem; }
 
-  .header-nav a:not(.nav-ca-btn) {
-    display: none;
-  }
-}
+  label           { font-size: 0.85rem; margin-bottom: 6px; }
+  input           { padding: 11px 14px; margin-bottom: 14px; }
 
-@media (max-width: 480px) {
-  .hero-ca,
-  .hero-predictor {
-    padding: 32px 20px;
-  }
+  .hero-ca h2     { font-size: 2.2rem; }
+  .hero-ca > p    { font-size: 1rem; max-width: 460px; margin-bottom: 32px; }
 
-  .hero-ca h2 {
-    font-size: 1.5rem;
-  }
+  .ca-perks       { gap: 10px; margin-bottom: 36px; }
+  .perk-item      { padding: 9px 16px; font-size: 0.88rem; }
+  .perk-icon      { font-size: 1.1rem; }
 
-  .predictor-header h1 {
-    font-size: 1.4rem;
-  }
+  .ca-apply-btn   { padding: 14px 42px; font-size: 1.05rem; margin-bottom: 28px; }
 
-  input {
-    font-size: 0.88rem;
-  }
-
-  button {
-    font-size: 0.92rem;
-  }
+  .courses-section { padding: 48px 24px; }
+  .courses-inner h2 { font-size: 1.5rem; margin-bottom: 18px; }
+  .course-card    { flex: 1 1 240px; max-width: 280px; }
 }
