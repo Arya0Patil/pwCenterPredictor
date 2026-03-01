@@ -501,13 +501,29 @@ button:hover {
   /* side-by-side hero */
   .hero-split {
     flex-direction: row;
-    align-items: stretch;
-    min-height: calc(100vh - 65px);
+    align-items: flex-start; /* don't force CA to stretch with predictor */
   }
 
-  /* restore HTML order: CA left, predictor right */
-  .hero-ca        { order: 1; flex: 1 1 420px; padding: 56px 52px; justify-content: center; }
-  .hero-predictor { order: 2; flex: 1 1 420px; padding: 52px 48px; justify-content: center; overflow-y: auto; }
+  /* CA sticks to viewport — never grows when predictor expands */
+  .hero-ca {
+    order: 1;
+    flex: 1 1 420px;
+    padding: 56px 52px;
+    justify-content: center;
+    position: sticky;
+    top: 65px; /* below sticky header */
+    height: calc(100vh - 65px);
+    overflow-y: auto;
+  }
+
+  /* predictor grows freely with results */
+  .hero-predictor {
+    order: 2;
+    flex: 1 1 420px;
+    padding: 52px 48px;
+    justify-content: flex-start;
+    min-height: calc(100vh - 65px);
+  }
 
   .predictor-header { text-align: left; margin-bottom: 28px; }
   .predictor-header h1 { font-size: 1.75rem; text-align: left; }
